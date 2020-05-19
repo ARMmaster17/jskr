@@ -1,0 +1,2 @@
+class RawPost < ApplicationRecord
+end
