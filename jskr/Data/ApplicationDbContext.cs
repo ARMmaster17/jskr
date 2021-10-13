@@ -14,5 +14,6 @@ namespace jskr.Data
         {
         }
         public DbSet<jskr.Models.Source> Source { get; set; }
+        public DbSet<jskr.Models.Event> Event { get; set; }
     }
 }
