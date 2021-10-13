@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using jskr.Models;
 
 namespace jskr.Data
 {
@@ -12,5 +13,6 @@ namespace jskr.Data
             : base(options)
         {
         }
+        public DbSet<jskr.Models.Source> Source { get; set; }
     }
 }
