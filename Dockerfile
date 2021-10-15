@@ -14,5 +14,7 @@ COPY . .
 
 RUN rake assets:precompile
 
+RUN chmod 777 /app/docker-entrypoint.sh
 EXPOSE 3000
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["rails", "server", "-b", "0.0.0.0"]
