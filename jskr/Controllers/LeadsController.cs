@@ -58,7 +58,7 @@ namespace jskr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Url,Company,Role,Salary,Hourly,Location,State,ReserchNotes,LeadSource")] Lead lead)
+        public async Task<IActionResult> Create([Bind("Id,Url,Company,Role,Salary,Hourly,Location,State,ReserchNotes,LeadSourceID")] Lead lead)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace jskr.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            PopulateSourcesDropDownList(lead.LeadSource);
+            PopulateSourcesDropDownList(lead.LeadSourceID);
             return View(lead);
         }
 
@@ -83,7 +83,7 @@ namespace jskr.Controllers
             {
                 return NotFound();
             }
-            PopulateSourcesDropDownList(lead.LeadSource);
+            PopulateSourcesDropDownList(lead.LeadSourceID);
             return View(lead);
         }
 
@@ -92,7 +92,7 @@ namespace jskr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Url,Company,Role,Salary,Hourly,Location,State,ReserchNotes,LeadSource")] Lead lead)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Url,Company,Role,Salary,Hourly,Location,State,ReserchNotes,LeadSourceID")] Lead lead)
         {
             if (id != lead.Id)
             {
@@ -119,7 +119,7 @@ namespace jskr.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            PopulateSourcesDropDownList();
+            PopulateSourcesDropDownList(lead.LeadSourceID);
             return View(lead);
         }
 
@@ -163,7 +163,7 @@ namespace jskr.Controllers
             var sourceQuery = from s in _context.Source
                               orderby s.Name
                               select s;
-            ViewBag.LeadSource = new SelectList(sourceQuery.AsNoTracking(), "LeadSource", "Name", selectedLead);
+            ViewBag.LeadSourceID = new SelectList(sourceQuery.AsNoTracking(), "Id", "Name", selectedLead);
         }
     }
 }

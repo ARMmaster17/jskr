@@ -10,6 +10,7 @@ namespace jskr.Models
         public int Id { get; set; }
         public List<Event> Events { get; set; }
         public Source LeadSource { get; set; }
+        public int LeadSourceID { get; set; }
         public string Url { get; set; }
         public string Company { get; set; }
         public string Role { get; set; }
