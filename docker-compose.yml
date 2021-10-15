@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  postgres:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: jskr
+    ports:
+      - 5432:5432
+  jskr:
+    build: .
+    environment:
+      RAILS_ENV: development
+      RAILS_LOG_TO_STDOUT: enabled
+      DATABASE_URL: postgresql://postgres:password@postgres:5432/jskr
+    depends_on:
+      - postgres
+    restart: always
+    ports:
+      - 3000:3000
