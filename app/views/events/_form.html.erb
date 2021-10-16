@@ -1,0 +1,30 @@
+<%= form_with(model: [ @lead, @lead.events.build], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :occurred %>
+    <%= form.date_select :occurred %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state_id %>
+    <%= form.collection_select(:state_id, State.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :person %>
+    <%= form.text_field :person %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

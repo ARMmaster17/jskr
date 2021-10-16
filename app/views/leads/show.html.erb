@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @lead.company %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @lead.position %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @lead.source.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @lead.location %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @lead.notes %>
+</p>
+<h3>Events</h3>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>State</th>
+    <th>Person</th>
+    <th>Notes</th>
+    <th>Actions</th>
+  </tr>
+  <% @lead.events.each do |event| %>
+    <tr>
+      <td><%= event.occurred %></td>
+      <td><%= event.name %></td>
+      <td><%= event.state.name %></td>
+      <td><%= event.person %></td>
+      <td><%= event.notes %></td>
+      <td><%= link_to 'Destroy', [event.lead, event], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= render 'events/form', event: @lead.events.new, lead: @lead %>
+
+<%= link_to 'Edit', edit_lead_path(@lead) %> |
+<%= link_to 'Back', leads_path %>
