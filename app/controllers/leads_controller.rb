@@ -1,5 +1,6 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /leads or /leads.json
   def index
