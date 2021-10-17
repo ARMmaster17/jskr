@@ -4,6 +4,9 @@ if [ -f /app/tmp/pids/server.pid ]; then
   rm /app/tmp/pids/server.pid
 fi
 
+# Workaround for https://github.com/rails/rails/issues/33528
+RAILS_MASTER_KEY=$(cat <(echo $RAILS_MASTER_KEY))
+
 echo "==============="
 echo "|$RAILS_MASTER_KEY|"
 echo "==============="
