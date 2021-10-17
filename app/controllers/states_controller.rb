@@ -4,25 +4,27 @@ class StatesController < ApplicationController
 
   # GET /states or /states.json
   def index
-    @states = State.all
+    @states = current_user.states.all
   end
 
   # GET /states/1 or /states/1.json
   def show
+    @state = current_user.states.find(params[:id])
   end
 
   # GET /states/new
   def new
-    @state = State.new
+    @state = current_user.states.new
   end
 
   # GET /states/1/edit
   def edit
+    @state = current_user.states.find(params[:id])
   end
 
   # POST /states or /states.json
   def create
-    @state = State.new(state_params)
+    @state = current_user.states.new(state_params)
 
     respond_to do |format|
       if @state.save
@@ -60,7 +62,7 @@ class StatesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_state
-      @state = State.find(params[:id])
+      @state = current_user.states.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

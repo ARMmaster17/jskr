@@ -4,25 +4,27 @@ class SourcesController < ApplicationController
 
   # GET /sources or /sources.json
   def index
-    @sources = Source.all
+    @sources = current_user.sources.all
   end
 
   # GET /sources/1 or /sources/1.json
   def show
+    @source = current_user.sources.find(params[:id])
   end
 
   # GET /sources/new
   def new
-    @source = Source.new
+    @source = current_user.sources.new
   end
 
   # GET /sources/1/edit
   def edit
+    @source = current_user.sources.find(params[:id])
   end
 
   # POST /sources or /sources.json
   def create
-    @source = Source.new(source_params)
+    @source = current_user.sources.new(source_params)
 
     respond_to do |format|
       if @source.save
@@ -60,7 +62,7 @@ class SourcesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_source
-      @source = Source.find(params[:id])
+      @source = current_user.sources.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
