@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :company %>
     <%= form.text_field :company %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :position %>
     <%= form.text_field :position %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :source_id %>
     <%= form.collection_select(:source_id, Source.all, :id, :name) %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :location %>
     <%= form.text_field :location %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :notes %>
     <%= form.text_area :notes %>
   </div>
