@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: jskr_production
+  database: jskr-psql
   username: jskr
   password: <%= ENV['JSKR_DATABASE_PASSWORD'] %>
