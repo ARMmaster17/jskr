@@ -1,25 +1,25 @@
 <%= form_with(model: [ @lead, @lead.events.build], local: true) do |form| %>
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :occurred %>
-    <%= form.date_select :occurred %>
+    <%= form.date_select(:occurred, {}, {:class => 'browser-default'}) %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :state_id %>
-    <%= form.collection_select(:state_id, State.all, :id, :name) %>
+    <%= form.collection_select(:state_id, State.all, :id, :name, {}, {:class => 'browser-default'}) %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :person %>
     <%= form.text_field :person %>
   </div>
 
-  <div class="field">
+  <div class="input-field col s12">
     <%= form.label :notes %>
     <%= form.text_area :notes %>
   </div>

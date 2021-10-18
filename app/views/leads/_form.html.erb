@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="input-field col s12">
-    <%= form.label :company %>
     <%= form.text_field :company %>
+    <%= form.label :company %>
   </div>
 
   <div class="input-field col s12">
-    <%= form.label :position %>
     <%= form.text_field :position %>
+    <%= form.label :position %>
   </div>
 
   <div class="input-field col s12">
+    <%= form.collection_select(:source_id, Source.all, :id, :name, {}, {:class => 'browser-default'}) %>
     <%= form.label :source_id %>
-    <%= form.collection_select(:source_id, Source.all, :id, :name) %>
   </div>
 
   <div class="input-field col s12">
-    <%= form.label :location %>
     <%= form.text_field :location %>
+    <%= form.label :location %>
   </div>
 
   <div class="input-field col s12">
-    <%= form.label :notes %>
     <%= form.text_area :notes %>
+    <%= form.label :notes %>
   </div>
 
   <div class="actions">
