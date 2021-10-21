@@ -24,6 +24,12 @@
   <strong>Notes:</strong>
   <%= @lead.notes %>
 </p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @lead.current_status %>
+</p>
+
 <h3>Events</h3>
 <table>
   <tr>
@@ -41,7 +47,7 @@
       <td><%= event.state.name %></td>
       <td><%= event.person %></td>
       <td><%= event.notes %></td>
-      <td><%= link_to 'Destroy', [event.lead, event], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Delete', [event.lead, event], method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

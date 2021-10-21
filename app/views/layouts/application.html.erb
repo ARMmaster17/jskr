@@ -16,6 +16,10 @@
     <%= render 'layouts/nav'%>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="row">
+      <div class="col l8 offset-l2 m12 s12">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @leads = current_user.leads.find(params[:id])
+      @leads = current_user.leads.find(params[:lead_id])
       @event = @leads.events.find(params[:id])
     end
 

@@ -5,10 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Company</th>
       <th>Position</th>
+      <th>Company</th>
       <th>Source</th>
       <th>Location</th>
+      <th>Status</th>
       <th>Notes</th>
       <th colspan="3"></th>
     </tr>
@@ -17,12 +18,12 @@
   <tbody>
     <% @leads.each do |lead| %>
       <tr>
+        <td><%= link_to lead.position, lead %></td>
         <td><%= lead.company %></td>
-        <td><%= lead.position %></td>
-        <td><%= lead.source_id %></td>
+        <td><%= lead.source.name %></td>
         <td><%= lead.location %></td>
+        <td><%= lead.current_status %></td>
         <td><%= lead.notes %></td>
-        <td><%= link_to 'Show', lead %></td>
         <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
         <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
