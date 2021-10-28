@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
     if user_signed_in? then
-      @events = current_user.events.all.joins(:state).group(:name).group_by_day(:occurred).count
-      puts @events
+      @timeline_events = current_user.events.all.joins(:state).group("states.name").group_by_day(:occurred, last: 21).count
+      puts @timeline_events
     end
   end
 end
