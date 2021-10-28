@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :sources
   has_many :states
   has_many :leads
+  has_many :events, through: :leads
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user |

@@ -4,7 +4,7 @@ class Lead < ApplicationRecord
   has_many :events
 
   def current_status
-    if self.events.all.count > 0 then
+    if self.events.all.count > 0
       return self.events.order(occurred: :desc, id: :desc).first.state.name
     else
       return "-"
