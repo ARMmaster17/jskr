@@ -7,3 +7,32 @@
 
 <%= link_to 'Edit', edit_source_path(@source) %> |
 <%= link_to 'Back', sources_path %>
+
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <%= pie_chart @events_breakdown %>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Event Type Breakdown<i class="material-icons right">more_vert</i></span>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Event Type Breakdown<i class="material-icons right">close</i></span>
+    <p>This chart shows how many events, by type, occurred for this source.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @events_breakdown.each do |src, value| %>
+          <tr>
+            <td><%= src %></td>
+            <td><%= (value.to_f / @events_breakdown_sum.to_f * 100).to_s(:percentage, precision: 1) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

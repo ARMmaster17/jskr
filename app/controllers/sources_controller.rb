@@ -10,6 +10,9 @@ class SourcesController < ApplicationController
   # GET /sources/1 or /sources/1.json
   def show
     @source = current_user.sources.find(params[:id])
+    events = current_user.events.joins(:lead).where('leads.source' => @source)
+    @events_breakdown = events.joins(:state).group("states.name").count
+    @events_breakdown_sum = events.count
   end
 
   # GET /sources/new
