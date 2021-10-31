@@ -4,7 +4,7 @@ class LeadsController < ApplicationController
 
   # GET /leads or /leads.json
   def index
-    @leads = current_user.leads.all
+    @leads = current_user.leads.all.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /leads/1 or /leads/1.json

@@ -23,6 +23,7 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 gem 'chartkick'
 gem 'groupdate'
+gem 'will_paginate', '~> 3.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
