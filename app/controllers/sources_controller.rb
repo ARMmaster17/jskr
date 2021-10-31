@@ -70,6 +70,6 @@ class SourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def source_params
-      params.require(:source).permit(:name)
+      params.require(:source).permit(:name, :startable)
     end
 end

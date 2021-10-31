@@ -16,7 +16,15 @@
     <%= form.label :name %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="input-field col s12">
+    <label>
+      <%= form.check_box :startable %>
+      <span>Startable</span>
+    </label>
+  </div>
+  <br>
+  <br>
+  <div class="actions input-field col s12">
+    <label><%= form.submit %></label>
   </div>
 <% end %>
