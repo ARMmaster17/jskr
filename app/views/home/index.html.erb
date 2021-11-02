@@ -26,4 +26,17 @@
       <p>This chart is a breakdown of the number of times each event type has occurred. Note that this is only a breakdown of all events, and does not consider events that may be part of the same lead.</p>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <h2 class="center"><%= @next_source_rec %></h2>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Recommended Next Source<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Event Type Breakdown<i class="material-icons right">close</i></span>
+      <p>This recommendation is based on a formula that balances between exploring all startable sources entered into JSKR, and maximizing returns on sources that have shown to generate high-scoring events.</p>
+    </div>
+  </div>
 <% end %>
