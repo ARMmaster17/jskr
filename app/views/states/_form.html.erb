@@ -16,6 +16,11 @@
     <%= form.label :name %>
   </div>
 
+  <div class="input-field col s12">
+    <%= form.number_field :score, step: 1 %>
+    <%= form.label :score %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

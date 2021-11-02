@@ -5,5 +5,10 @@
   <%= @state.name %>
 </p>
 
+<p>
+  <strong>Score:</strong>
+  <%= @state.score.to_i %>
+</p>
+
 <%= link_to 'Edit', edit_state_path(@state) %> |
 <%= link_to 'Back', states_path %>
