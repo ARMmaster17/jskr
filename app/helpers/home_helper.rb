@@ -18,6 +18,10 @@ module HomeHelper
         ucb_sources[ssrc.name] = 0
       end
     end
-    return ucb_sources.max_by{|k,v| v}[0]
+    if ucb_sources.length > 0
+      return ucb_sources.max_by{|k,v| v}[0]
+    else
+      return nil
+    end
   end
 end
